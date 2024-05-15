@@ -163,48 +163,13 @@
         if ($.fn.typed){
             var $typedStrings = $('.typed-strings');
             $typedStrings.typed({
-                strings: ['coffee addict..', 'fun people to jam with..', 'talented..'],
+                strings: ['coffee addict..', 'talented..'],
                 typeSpeed: 100,
                 loop: true,
                 showCursor: false
             });
         }
-        
-        
-        /** Gallery - Magnific popup */
-        if ($.fn.magnificPopup){
-            $galleryGrid.magnificPopup({
-                delegate: 'a.zoom',
-                type: 'image',
-                mainClass: 'mfp-fade',
-                gallery:{
-                    enabled: true,
-                    navigateByImgClick: true,
-                    preload: [0,2],
-                    tPrev: 'Previous',
-                    tNext: 'Next',
-                    tCounter: '<span class="mfp-counter-curr">%curr%</span> of <span class="mfp-counter-total">%total%</span>'
-                }
-            });
-        }
-        
-        
-        /** Gallery - Filter */
-        if ($.fn.imagesLoaded && $.fn.isotope){
-            var $gridSelectors = $('.gallery-filter').find('a');
-            $gridSelectors.on('click', function(e){
-                $gridSelectors.removeClass('disabled');
-                $(this).addClass('disabled');
-
-                var selector = $(this).attr('data-filter');
-                $galleryGrid.isotope({
-                    filter: selector
-                });
-                e.preventDefault();
-            });
-        }
-        
-        
+            
         /** Accordion collapse */
         if (ww < 768){
             $accordionEducation.find('.collapse').collapse('show');
@@ -214,6 +179,13 @@
             $accordionEducation.find('.collapse').not(':first').collapse('hide');
             $accordionWork.find('.collapse').not(':first').collapse('hide');
         }
+        $('#accordion-education').on('show.bs.collapse', function (e) {
+            $(e.target).siblings('.card-header').find('.accordion-toggle-icon').removeClass('fa-plus').addClass('fa-minus');
+        });
+          
+        $('#accordion-education').on('hide.bs.collapse', function (e) {
+            $(e.target).siblings('.card-header').find('.accordion-toggle-icon').removeClass('fa-minus').addClass('fa-plus');
+        });
         
         
         /** Chart - Bar */
