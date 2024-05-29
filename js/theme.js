@@ -163,7 +163,7 @@
         if ($.fn.typed){
             var $typedStrings = $('.typed-strings');
             $typedStrings.typed({
-                strings: ['caffeine addict..','innovative..','collaborative..', 'talented..','loves hiking..'],
+                strings: ['innovative..','collaborative..', 'talented..','loves hiking..'],
                 typeSpeed: 100,
                 loop: true,
                 showCursor: false
